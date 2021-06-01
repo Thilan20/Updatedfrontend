@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+   
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <title>React App</title>
+
+
+    <style>
+      a { cursor: pointer; }
+      
+.header {
+    background-color: rgb(30, 85, 167);
+
+}
+.header img {
+    float: left;
+   width:130px; 
+   height: 170px;
+   background: #555;}
+        
+     .header h1{  position: relative;
+         color: white;
+          text-align: center;
+           padding: 40px;
+          }
+
+.header h2{
+  color:white;
+   text-align: center;
+  padding: 0px;
+      }  
+      
+      
+      
+
+
+
+
+          * {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+
+  .title h2{
+  padding-top: 10px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 60px;
+}
+.title h3{
+  padding-top: 0px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 60px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.changecolor
+{
+  background-color: #b3beca;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 150px;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+ .image{
+  opacity:0.7;
+ }
+
+ .PageHeading    
+{    
+  margin-top: 10px;    
+  margin-bottom: 10px;    
+  color :black !important;    
+}    
+.App {    
+  text-align: center;    
+}    
+.navheader{    
+  margin-top: 10px;    
+  color :black !important;    
+  background-color: #b3beca!important    
+}    
+
+.viewbtn{
+  background-color: #91b192;
+}
+
+.details button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button4 {background-color: #e2e2e2; color: black;} /* Gray */ 
+
+.foot {text-align: center;}
+
+hr.new4 {
+  border: 1px solid blue;
+}
+
+ 
+.column1 {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.sliderimg{
+  width: 100%;
+  height: 500px;
+  object-fit: cover
+}
+  </style>
+
+
+  </head>
+  <body>
+
+    <div id="root"></div>
+    <footer id="footer">    
+      <div class="footer-main">
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div class="span4">
+              <div class="infoarea">
+                <br><br><br><br><br><br><br>
+                <hr class="new4">
+                <div class="column1">
+                <p style="text-align: justify;">The Faculty of Engineering of University of Ruhuna was established on 
+    1<sup>st</sup> July 1999 at Hapugala, Galle.&nbsp;  Admission to the Faculty of Engineering, University of Ruhuna, is subject to the University Grants Commission policy on university admissions.</p>          </div>
+                </div>
+              </div>
+            <div class="column1">
+            <div class="span2">
+              <div class="foot-links">
+                <h5>Useful Links</h5>
+                <ul>
+               <li><a href="http://www.ruh.ac.lk" target="_blank">University of Ruhuna</a></li><li><a href="http://www.eng.ruh.ac.lk" target="_blank">Faculty of Engineering</a></li><li><a href="http://paravi.ruh.ac.lk/foenmis/index.php" target="_blank">ENG-MIS</a></li><li><a href="http://www.lib.ruh.ac.lk/Eng/index.php" target="_blank">Library</a></li><li><a href="http://www.iesl.lk" target="_blank">IESL</a></li>         
+                </ul>
+              </div>
+            </div>
+          </div> 
+          
+          <div class="column1">
+            <div class="span3">
+                         <div class="foot-links">
+                <h5>Departments</h5>
+          <!--<a href="http://www.dcee.ruh.ac.lk/">Civil and Environmental Engineering</a><br>
+          <a href="http://eie.eng.ruh.ac.lk/">Electrical and Information Engineering</a><br>
+          <a href="http://www.eng.ruh.ac.lk/dmme/">Mechanical and Manufacturing Engineering</a><br>
+          <a href="http://www.eng.ruh.ac.lk/is/">Interdisciplinary Studies</a><br>-->
+                <ul>
+                  <li class="smedia-011"><a href="http://www.dcee.ruh.ac.lk" target=_blank>Civil and Environmental Engineering</a></li>               <li class="smedia-021"><a href="http://eie.eng.ruh.ac.lk" target=_blank>Electrical and Information Engineering</a></li>               <li class="smedia-031"><a href="http://www.eng.ruh.ac.lk/dmme" target=_blank>Mechanical and Manufacturing Engineering</a></li>               <li class="smedia-041"><a href="http://www.eng.ruh.ac.lk/is" target=_blank>Interdisciplinary Studies</a></li>      
+                      </ul>
+          
+          
+              </div>
+            </div>
+          </div>
+        <div class="span3">
+          <div>
+              <div class="contact-info">
+               <h6>_</h6> </h6>
+                <h5>Contact Us</h5>
+                <p>Faculty of Engineering,Hapugala,Galle,Sri Lanka.<br>
+                <i class="fa fa-phone-square"></i>Phone: +(94)0 91 2245765/6<br>
+                <i class="fa fa-envelope"></i>E-mail: <a class="mail-link" href="mailto:webmaster@eng.ruh.ac.lk">webmaster@eng.ruh.ac.lk</a></p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-foot">
+        <div class="container-fluid" >
+          <div class="foot">
+            <a href="http://localhost:3000/"  > OBE Curriculum Planning Tool</a>
+          </div>
+          <div class="foot">
+            <p >Copyright &copy; Faculty of Engineering-2021.</p>
+          </div>
+        </div>
+                   
+      </div>
+    </footer>    
+  
+      </body>
+</html>
