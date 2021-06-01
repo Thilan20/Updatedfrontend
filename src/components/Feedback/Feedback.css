@@ -1,0 +1,21 @@
+.header {
+    background-color: rgb(30, 85, 167);
+
+}
+.header img {
+    float: left;
+   width:130px; 
+   height: 170px;
+   background: #555;}
+
+   .table-light {
+    column-span: 9;
+    width: 100%;
+    margin-bottom: 20px;
+    } 
+.label
+{
+    float: 'left';
+}
+
+   
