@@ -47,7 +47,7 @@ const FeedbackChart = () => {
 
     let myLabels = ['Q1','Q2','Q3','Q4','Q5','Q6','Q7','Q8','Q9','Q10'];
     
-    axios.get('https://localhost:44303/api/feedbacks')
+    axios.get('https://localhost:5001/api/feedbacks?id='+this.props.match.params.moduleId)
       .then(res => {
         console.log(res);
         for (const dataObj of res.data) {

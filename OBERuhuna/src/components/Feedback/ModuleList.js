@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';  
 //import Table from './Tables';  
 import Table from '../Feedback/Table';
-import Logo from '../../photos/logo.jpg';
+import Logo from './logo.jpg';
 import { Route,Link} from 'react-router-dom'
 import  '../Feedback/Feedback.css'
 import { trackPromise } from 'react-promise-tracker';

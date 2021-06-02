@@ -9,11 +9,16 @@ import Logo from '../logo.jpg';
 export default class FilterResults extends Component {  
 
   constructor(props) {  
-
+ 
       super(props);  
-      this.state = {business: []};  
-    }  
-    componentDidMount(){  
+      this.state = {business: [],
+        moduleId:'',
+        module:[],
+          LOs:[],};  
+    } 
+    
+    
+    async componentDidMount(){  
       debugger;  
       console.log(this.props.match.params.moduleId);
       axios.get('https://sheetdb.io/api/v1/x56s2u7t66fhe?sheet='+this.props.match.params.moduleId)  
@@ -24,6 +29,11 @@ export default class FilterResults extends Component {
         .catch(function (error) {  
           console.log(error);  
         })  
+
+        const res =await axios.get('https://localhost:5001/api/LOes?id='+this.props.match.params.moduleId)  
+        const LOs = res.data;
+        this.setState({LOs});
+        console.log(LOs)
     }  
       
     tabRow(){  
@@ -31,6 +41,16 @@ export default class FilterResults extends Component {
           return <Table2 obj={object} key={i} />;  
       });  
     }  
+
+    rendertableheader = () =>{
+      return this.state.LOs.map(LO=> {
+          return(
+              <th key={LO.loid}>
+                  <td>{LO.loid}</td>
+              </th>
+          )
+      } );
+  }
   
     render() {  
       return (  
@@ -42,11 +62,7 @@ export default class FilterResults extends Component {
             <thead >  
               <tr >  
                 <th >REG_NO</th>   
-                <th >LO1</th> 
-                <th >LO2</th> 
-                <th>LO3</th> 
-                <th >LO4</th> 
-                <th>LO5</th> 
+                {this.rendertableheader()}
                 <th >Total</th> 
               </tr>  
             </thead>  

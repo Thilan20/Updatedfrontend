@@ -22,7 +22,9 @@ import AsComponentList from './components/AssignmentComponents/AsComponentList';
 import AddAsComponent from './components/AssignmentComponents/AddAsComponent';
 import EditLO from './components/LO/EditLOs';
 import FormA from './components/AssignmentComponents/FormA';
-
+import Summary from './components/Lecturer/Summary';
+import Summary2 from './components/Lecturer/Summary2';
+import Summary3 from './components/Lecturer/Summary3';
 
 
 
@@ -54,7 +56,9 @@ class App extends Component {
           <Route path= '/AddAsComponent/:Moduleid' component={AddAsComponent} />
           <Route path='/EditLO/:vlid' component={EditLO}/>
           <Route path='/formA/:ModuleId' component={FormA}/>
-          
+          <Route path='/Summary' component={Summary}/>
+          <Route path='/Summary2' component={Summary2}/>
+          <Route path='/Summary3' component={Summary3}/>
           
 
         </div>        

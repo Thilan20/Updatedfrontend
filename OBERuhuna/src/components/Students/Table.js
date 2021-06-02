@@ -36,10 +36,10 @@ class Table extends Component {
 
 
             <td>
-            <Link to ={'/Feedback'}>
+            <Link to ={'/FeedbackCourse/'+this.props.obj.moduleId}>
             
             <button class='btn btn-success'>
-              Add Feedback
+              Give Feedback
             </button>
           </Link>
           </td>

@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
-import Logo from '../../photos/logo.jpg';
+import Logo from '../logo.jpg';
 import { Route, BrowserRouter,Link,Switch} from 'react-router-dom'
 import Addcourse from '../Course/Addcourse'  
 import EditCourse from '../Course/EditCourse'
 import Courselist from '../Course/Courselist'
+import { FunnelChart } from 'recharts';
+import { Dropdown,DropdownButton} from 'react-bootstrap';
 
 
-const Admin = () => {
+
+function Admin(props){
+
+  const onLogoutHandler = (e) => {
+    e.preventDefault();
+    localStorage.removeItem('myData');
+   props.history.push('/')
+  }
+  var user =localStorage.getItem('username');
+  console.log(user);
   return (
     <div>
         <div class= "header">
@@ -15,6 +26,11 @@ const Admin = () => {
               <Link className="header" to='/'  >
                   Faculty of Engineering University of Ruhuna
               </Link>
+              <DropdownButton id="dropdown-basic-button" title={user} style ={{float:'right'}}>
+  <Dropdown.Item href="/admin"> Dashboard</Dropdown.Item>
+  <Dropdown.Item  onClick={onLogoutHandler}>Logout</Dropdown.Item>
+</DropdownButton> 
+  
           </h1>
                             
           <h2>Outcome Based Education System</h2>
