@@ -8,15 +8,26 @@ import { Link, Redirect} from 'react-router-dom'
 import './Feedback.css'
 
 function FeedbackCourse(props){ 
-  
+  var URL = window.location.pathname
+  var ModuleIdFeedback = URL.slice(16);
+  console.log( ModuleIdFeedback);
+
   const [feedback, setfeedback] = useState({ moduleId:'', 
   q1:'',q2:'',q3:'',q4:'',q5:'',q6:'',q7:'',q8:'',q9:'',q10:'',
   });  
+
+ 
+
+
+
+
+
+
   const apiUrl = "https://localhost:5001/api/Feedbacks";    
   const feedbackFunc = (e) => {    
           e.preventDefault();    
           debugger;   
-          const data = {moduleId:feedback.moduleId,q1:feedback.q1,q2:feedback.q2,q3:feedback.q3,
+          const data = {moduleId:ModuleIdFeedback,q1:feedback.q1,q2:feedback.q2,q3:feedback.q3,
   q4:feedback.q4,q5:feedback.q5,q6:feedback.q6,q7:feedback.q7,q8:feedback.q8,q9:feedback.q9,q10:feedback.q10 };    
           axios.post(apiUrl,  data)    
           .then((result) => {    
@@ -53,7 +64,7 @@ return (
         5-Very Satisfied  4-Satisfied 3-Moderate 2-Unsatisfied 1-Very bad
     </div>
     <Label  for="psw" style={{float:'left'}} ><b>Module Code</b></Label>
-    <input type="text" placeholder="Enter Here" name="moduleId" onChange={ onChange } value={feedback.moduleId}  id="modulecode" required />
+    <input type="text" placeholder={ModuleIdFeedback} name="moduleId" onChange={ onChange } value= {ModuleIdFeedback}  id="modulecode" required />
     <Label for="psw" style={{float:'left'}}><b>The lectures helped to improve knowledge</b></Label>
     <input type="number" placeholder="Please enter number between 1 to 5" name="q1"onChange={ onChange } value={feedback.q1}  id="q1"  min="1" max="5" required/>
 	

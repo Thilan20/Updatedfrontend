@@ -37,7 +37,7 @@ function Login2(props) {
                 console.log(result.data.message);  
                 if (result.data[0] == 'Lecturer')    
                     props.history.push('/lecturer')    
-                else if(result.data[0] == 'Student')   
+                else if(result.data[0] == 'User')   
                 {
                   props.history.push('/student')
                 }

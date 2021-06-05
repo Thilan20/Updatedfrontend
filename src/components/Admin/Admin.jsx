@@ -14,6 +14,7 @@ function Admin(props){
   const onLogoutHandler = (e) => {
     e.preventDefault();
     localStorage.removeItem('myData');
+    localStorage.removeItem('username');
    props.history.push('/')
   }
   var user =localStorage.getItem('username');

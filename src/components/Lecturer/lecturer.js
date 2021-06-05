@@ -15,6 +15,7 @@ function Lecturer (props) {
   const onLogoutHandler = (e) => {
     e.preventDefault();
     localStorage.removeItem('myData');
+    localStorage.removeItem('username');
    props.history.push('/')
   }
   var user =localStorage.getItem('username');
@@ -67,7 +68,7 @@ function Lecturer (props) {
           <Route path ='/AddLO/:value' component = {LO}/>
           <Route path = '/LOlist/:value' component ={LOlist} />
           <Route path='/results/:moduleId' component={Filter2} />
-          <Route path='/feedbackChart/:moduleId' component={FeedbackChart} />
+          <Route path='/feedbackChart/:moduleId' component={FeedbackChart}/>
 
 
         </Switch>  
