@@ -92,10 +92,7 @@ export default class FormA extends Component {
         const res1 =await axios.get('https://localhost:5001/api/modules/'+this.props.match.params.ModuleId)  
         const module = res1.data;
         this.setState({module});
-        /*this.state.module=res1.data;
-        console.log(this.state.module.credits);
-        this.state.credits= this.state.module.credits;*/
- 
+       
     }    
        
 

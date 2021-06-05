@@ -1,85 +1,52 @@
 import React, { Component, useEffect,useState,setState } from 'react';  
 import axios from 'axios';  
-//import { Link } from 'react-router-dom';  
 import { Route,Link} from 'react-router-dom'
 
 
 
 class AsComponentTable extends Component {  
-  
-
   constructor(props) {  
-    super(props);  
+    super(props);
+    
     this.state = {  
-      LO:{
-        id:'',
-        loid:'',
-        lmarks:0,
-        name:'',
-        moduleId:''
-      }
-      ,
-      PLO:{},
-      nm:'',
-      mks:0
+      PLO:[],
+
     } 
-    const pk = 0;
-//   this.LO =this.LO.bind(this);  
-  // this.nm=this.nm.bind(this);
-      }
-    getascomponent(asID){    
-          axios.get('https://localhost:5001/api/AsComponents1/' +asID)
+  }
 
-      .then(response =>{
-        console.log(response);
-         this.setState({name:response.name})});
+      getlo = (iid) => {
+        debugger;
 
-
-      debugger;  
+        axios.get('https://localhost:5001/api/LOes1/'+iid)  // Get the marks and PO mappings of relevant LO
+        .then(response => {  
+          this.state.PLO = response.data 
+          axios.put('https://localhost:5001/api/LOes1/'+this.props.obj.lid,
+          {
+          lmarks:parseInt(this.state.PLO.lmarks)-parseInt(this.props.obj.marks),  // Substracting the marks of the relevant LO and update
+          id:this.props.obj.lid, 
+          loid:this.props.obj.loid,
+          ModuleId:this.state.PLO.moduleId,
+          name:this.state.PLO.name,
+          p1:this.state.PLO.p1,
+          p2:this.state.PLO.p2,
+          p3:this.state.PLO.p3,
+          p4:this.state.PLO.p4,
+          p5:this.state.PLO.p5,
+          p6:this.state.PLO.p6,
+          p7:this.state.PLO.p7,
+          p8:this.state.PLO.p8,
+          p9:this.state.PLO.p9,
+          p10:this.state.PLO.p10,
+          p11:this.state.PLO.p11,
+          p12:this.state.PLO.p12
+        })
   
-
+        })
      
-
-    }
-    getlo(iid){
-      debugger
-      
-      axios.get('https://localhost:5001/api/LOes1/'+iid)
-     .then(response => {
-            this.setState({mks:response.data.lmarks,nm:response.data.name})
-            console.log(response.data);
-            console.log (this.state.mks);
-            console.log(this.state.nm);
-          return(this.state.nm, this.state.mks)
-    })
-    debugger;  
-    }
-
-
-
+       } 
     DeleteAsComponent= () =>{  
-   //this.getascomponent(this.props.obj.asID);
-    
-   console.log(this.props.obj.lid);  //Test whether data is correct
     this.getlo(this.props.obj.lid);
-    
-    console.log(this.state.nm);
-    console.log(this.props.obj.moduleId);
-    console.log(this.props.obj.marks);
-    console.log(this.state.mks);
-    debugger;
-
-
-   axios.put('https://localhost:5001/api/LOes1/'+this.props.obj.lid,
-    {
-    lmarks:parseInt(this.props.obj.lmarks)-parseInt(this.props.obj.marks) ,
-    id:this.props.obj.lid, 
-    loid:this.props.obj.loid,
-    ModuleId:this.props.obj.moduleId,
-    name:this.props.obj.name
-  })
-
-     axios.delete('https://localhost:5001/api/AsComponents/'+this.props.obj.asID)  
+     axios.delete('https://localhost:5001/api/AsComponents/'+this.props.obj.asID)  // Delete the assessment component
     .then(json => {  
     alert('Record deleted successfully!!');
     debugger;  
@@ -120,17 +87,19 @@ class AsComponentTable extends Component {
             <td >  
               {this.props.obj.type}  
             </td>
-          <td>  
+          <td> 
             <Link to={`/AsComponent/${this.props.dataFromParent}`}>
+
               <button type="button" onClick={this.DeleteAsComponent} className="btn btn-danger">Delete</button> 
-              </Link>                 
+            </Link>          
           </td>
           
      </tr> 
       
     );
+
       
   }  
 }  
   
-export default AsComponentTable; 
+export default AsComponentTable;

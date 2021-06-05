@@ -9,13 +9,10 @@ import CreateCourse from'./components/CreateCourse/CreateCourse'
 import Admin from './components/Admin/Admin'
 import ModuleList from './components/Feedback/ModuleList'
 import FeedbackCourse from './components/Feedback/FeedbackCourse'
-import LoadingComponent from './components/LoadingComponent';
 import FeedbackChart from './components/Feedback/FeedbackChart'
-import loginform from './components/Loginform/Login1'
 import Login2 from './components/Login/Login2'
 import LO from './components/LO/AddLO'
 import LOlist from './components/LO/LOlist'
-import DynamicTable from './components/LO/DynamicTable'
 import AddPO from './components/PO/AddPO';
 import POlist from './components/PO/POlsit'
 import AsComponentList from './components/AssignmentComponents/AsComponentList';
@@ -49,7 +46,6 @@ class App extends Component {
           <Route path='/feedbackChart' component ={FeedbackChart} />
           <Route path ='/AddLO/:value' component = {LO}/>
           <Route path = '/LOlist/:value' component ={LOlist} />
-          <Route path ='/DynamicTable' component={ DynamicTable}/>
           <Route path = '/AddPO' component={AddPO}/>
           <Route path='/POlist' component={POlist}/>
           <Route path='/Ascomponent/:value' component={AsComponentList}/>

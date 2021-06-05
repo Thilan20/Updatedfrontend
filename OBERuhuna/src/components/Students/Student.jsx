@@ -14,6 +14,7 @@ import { Dropdown,DropdownButton} from 'react-bootstrap';
   const onLogoutHandler = (e) => {
       e.preventDefault();
       localStorage.removeItem('myData');
+      localStorage.removeItem('username');
      props.history.push('/')
     }
 
@@ -58,9 +59,7 @@ import { Dropdown,DropdownButton} from 'react-bootstrap';
         </nav> <br />  
         <Switch>  
           <Route path='/Student/Course' component={Courselist} /> 
-         
           <Route path='/results/:moduleId' component={Filter2} />
-          
           <Route path='/ViewLO/:moduleId' component={ViewLO} /> 
           <Route path='/FeedbackCourse/:moduleId' component={FeedbackCourse} />
         </Switch>  

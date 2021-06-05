@@ -1,11 +1,13 @@
 import React, { Component } from 'react';  
 import axios from 'axios';  
-import ShowLOMarksTable from './ShowLOMarksTable'  
+
 export default class ShowLOMarks extends Component {  
   
   constructor(props) {  
       super(props);  
-      this.state = {business: []};  
+      this.state = {business: [],
+        total:0}
+       
     }  
     componentDidMount(){  
       debugger;  
@@ -22,11 +24,21 @@ export default class ShowLOMarks extends Component {
           console.log(error);  
         })  
     }  
+
+    totalmarks(LO){
+      this.state.total= parseInt(this.state.total)+parseInt(LO.lmarks)
+    }
       
     tabRow(){  
-      return this.state.business.map(function(object, i){  
-          return <ShowLOMarksTable obj={object} key={i} />;  
-      });  
+      return this.state.business.map(LO=> {
+        return(
+            <tr key={LO.id}>
+              <td >{LO.loid}</td>
+              <td>{LO.lmarks} </td>
+              {this.totalmarks(LO)}                   
+              </tr>
+        )
+      });     
     }  
     
     render() {  
@@ -46,7 +58,11 @@ export default class ShowLOMarks extends Component {
               </tr>  
             </thead>  
             <tbody>  
-             { this.tabRow() }   
+             { this.tabRow() } 
+             <tr>
+               <td> Total</td>
+               <td>{this.state.total }</td>
+               </tr>  
             </tbody>  
           </table>  
         </div>  

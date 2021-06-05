@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import Logo from '../logo.jpg';
 import { Route, BrowserRouter,Link,Switch} from 'react-router-dom'
 import Addcourse from '../Course/Addcourse'  
-import EditCourse from '../Course/EditCourse'
 import Courselist from '../Course/Courselist'
-import { FunnelChart } from 'recharts';
 import { Dropdown,DropdownButton} from 'react-bootstrap';
 
 
@@ -14,6 +12,7 @@ function Admin(props){
   const onLogoutHandler = (e) => {
     e.preventDefault();
     localStorage.removeItem('myData');
+    localStorage.removeItem('username');
    props.history.push('/')
   }
   var user =localStorage.getItem('username');
@@ -27,9 +26,9 @@ function Admin(props){
                   Faculty of Engineering University of Ruhuna
               </Link>
               <DropdownButton id="dropdown-basic-button" title={user} style ={{float:'right'}}>
-  <Dropdown.Item href="/admin"> Dashboard</Dropdown.Item>
-  <Dropdown.Item  onClick={onLogoutHandler}>Logout</Dropdown.Item>
-</DropdownButton> 
+                <Dropdown.Item href="/admin"> Dashboard</Dropdown.Item>
+                <Dropdown.Item  onClick={onLogoutHandler}>Logout</Dropdown.Item>
+              </DropdownButton> 
   
           </h1>
                             
@@ -37,11 +36,11 @@ function Admin(props){
 
         </div>
 
-      <div className="container">
+      <div>
         <h3 className="center">Administrator</h3>
         
         <BrowserRouter>
-        <div className="container">  
+        <div >  
         <nav className="navbar navbar-expand-lg navheader" >  
           <div className="collapse navbar-collapse">  
             <ul className="navbar-nav mr-auto">  

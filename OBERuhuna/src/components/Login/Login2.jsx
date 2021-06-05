@@ -3,8 +3,13 @@ import axios from 'axios';
 import Logo from '../../photos/logo.jpg';
 import Avatar from './img_avatar.png';
 import Gate from './gate.jpg';
+import jwt_decode from 'jwt-decode';
+
 
 import { Container, Col, Form,FormGroup, Label, Input, Button } from 'reactstrap';  
+import { Dropdown,DropdownButton} from 'react-bootstrap';
+
+
 
 
 function Login2(props) {  
@@ -23,7 +28,10 @@ function Login2(props) {
                 console.log(result.data);   
                 const serializedState = JSON.stringify(result.data[1]);  
                 console.log(serializedState);
+                var decoded = jwt_decode(serializedState);
+                 console.log(decoded);
                var a= localStorage.setItem('myData', serializedState); 
+               localStorage.setItem('username',result.data[2])
              
               console.log("A:",a)  
                 console.log(result.data.message);  
@@ -53,7 +61,8 @@ function Login2(props) {
                 setemployee({...employee, [e.target.name]: e.target.value});    
               }    
     return (  
-        
+
+   
         <div>
         <div className= "header">
 
@@ -61,7 +70,11 @@ function Login2(props) {
                         <h1>Faculty of Engineering University of Ruhuna</h1>
                         <h2>Outcome Based Education System</h2>
                     </div>
-        
+                    <div class="dropdown">
+                    <div class="dropdown">
+ 
+</div>
+</div>
 
         <div className ="title">
             <h2>Login Page</h2>

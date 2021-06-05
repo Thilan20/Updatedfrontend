@@ -1,10 +1,13 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import { Bar } from "react-chartjs-2";
 import axios from "axios";
 import { Container } from "reactstrap";
+import { propTypes } from "react-bootstrap/esm/Image";
+import ReactDOM from "react-dom";
 
-let feedbackValuesQ1 = [];
+
+    let feedbackValuesQ1 = [];
     let feedbackValuesQ2 = [];
     let feedbackValuesQ3 = [];
     let feedbackValuesQ4 = [];
@@ -28,26 +31,38 @@ let feedbackValuesQ1 = [];
     var q10Avg =0;
    var TotalStudents=0;
 
-const FeedbackChart = () => {
+const FeedbackChart=()=>{
+  console.log("previous value = "+feedbackValuesQ1)
+
+  var URL = window.location.pathname
+  var res = URL.slice(15);
+  console.log("Moduleid = "+ res);
+
+
+
+
+  
   const [chartData, setChartData] = useState({});
-  const [q1, setQ1] = useState([]);
-  const [q2, setQ2] = useState([]);
-  const [q3, setQ3] = useState([]);
-  const [q4, setQ4] = useState([]);
-  const [q5, setQ5] = useState([]);
-  const [q6, setQ6] = useState([]);
-  const [q7, setQ7] = useState([]);
-  const [q8, setQ8] = useState([]);
-  const [q9, setQ9] = useState([]);
-  const [q10, setQ10] = useState([]);
+  const [q1, setQ1] = useState([null]);
+  const [q2, setQ2] = useState([null]);
+  const [q3, setQ3] = useState([null]);
+  const [q4, setQ4] = useState([null]);
+  const [q5, setQ5] = useState([null]);
+  const [q6, setQ6] = useState([null]);
+  const [q7, setQ7] = useState([null]);
+  const [q8, setQ8] = useState([null]);
+  const [q9, setQ9] = useState([null]);
+  const [q10, setQ10] = useState([null]);
 
 
   const chart = () => {
     
 
     let myLabels = ['Q1','Q2','Q3','Q4','Q5','Q6','Q7','Q8','Q9','Q10'];
+    const apiUrlFilter = "https://localhost:5001/api/feedbacks/feedbackFilter?ModuleIdParameter="+res;
+    console.log(apiUrlFilter)
     
-    axios.get('https://localhost:5001/api/feedbacks1' /*?id=' +this.props.match.params.moduleId*/)
+    axios.get(apiUrlFilter)
       .then(res => {
         console.log(res);
         for (const dataObj of res.data) {
@@ -73,9 +88,7 @@ const FeedbackChart = () => {
         q9Avg = AverageFeedBack(feedbackValuesQ9);
         q10Avg = AverageFeedBack(feedbackValuesQ10);
 
-         TotalStudents=feedbackValuesQ1.length+feedbackValuesQ2.length+feedbackValuesQ3.length+feedbackValuesQ4.length+
-        feedbackValuesQ5.length+feedbackValuesQ6.length+feedbackValuesQ7.length+feedbackValuesQ8.length+feedbackValuesQ9.length+
-        feedbackValuesQ10.length;
+         TotalStudents=feedbackValuesQ1.length;
 
          allAverages = [q1Avg,q2Avg,q3Avg,q4Avg,q5Avg,q6Avg,q7Avg,q8Avg,q9Avg,q10Avg];
 
@@ -106,13 +119,13 @@ const FeedbackChart = () => {
   return (
     <Container>
     <div className="App" >
-      <h1>Responses of Students for module</h1>
+      <h1>Responses of Students for module </h1>
       <div>
         <Bar
           data={chartData}
           options={{
             responsive: true,
-            title: { text: "Number of Students:"+TotalStudents/10, display: true },
+            title: { text: "Number of Students:"+TotalStudents, display: true },
             scales: {
               yAxes: [
                 {
@@ -138,7 +151,18 @@ const FeedbackChart = () => {
         />
       </div>
     </div>
+    {feedbackValuesQ1= []}
+    {feedbackValuesQ2= []}
+    {feedbackValuesQ3= []}
+    {feedbackValuesQ4= []}
+    {feedbackValuesQ5= []}
+    {feedbackValuesQ6= []}
+    {feedbackValuesQ7= []}
+    {feedbackValuesQ8= []}
+    {feedbackValuesQ9= []}
+    {feedbackValuesQ10= []}
     </Container>
+    
   );
 };
 function AverageFeedBack(grades) {
@@ -146,8 +170,9 @@ function AverageFeedBack(grades) {
 for(var i = 0; i < grades.length; i++) {
   total += grades[i];
 }
-var avg = total / grades.length;
-   return avg;
+var avg ;
+avg = total / grades.length;
+   return parseFloat(avg).toFixed(2);;
 }
 export default FeedbackChart;
 
