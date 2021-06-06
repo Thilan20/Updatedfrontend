@@ -59,7 +59,7 @@ const FeedbackChart=()=>{
     
 
     let myLabels = ['Q1','Q2','Q3','Q4','Q5','Q6','Q7','Q8','Q9','Q10'];
-    const apiUrlFilter = "https://localhost:5001/api/feedbacks/feedbackFilter?ModuleIdParameter="+res;
+    const apiUrlFilter = "https://oberuhunaapi.azurewebsites.net//api/feedbacks/feedbackFilter?ModuleIdParameter="+res;
     console.log(apiUrlFilter)
     
     axios.get(apiUrlFilter)

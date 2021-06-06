@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';   
 import { Container, Col, Form,FormGroup, Label, Input, Button } from 'reactstrap';  
-import { Route, BrowserRouter,Link,Switch} from 'react-router-dom'
 import AddasComponentLO from'../LO/AddasComponentLO'
 import AddasComponentPO from'../PO/AddasComponentPO'
 import Select from 'react-select'
@@ -34,12 +33,13 @@ class AddAsComponent extends React.Component{
   p10:'',
   p11:'',
   p12:'',
+  error:1
   } 
   
   }   
 
   async getoptions(){
-    const res =await axios.get('https://localhost:5001/api/LOes?id='+this.props.match.params.Moduleid);
+    const res =await axios.get('https://oberuhunaapi.azurewebsites.net//api/LOes?id='+this.props.match.params.Moduleid);
     const data =res.data
   
  const options = data.map(d=> ({
@@ -65,6 +65,20 @@ class AddAsComponent extends React.Component{
  this.setState({selectoptions: options})
 }
 
+async getpos(){
+  const res1 =await axios.get('https://oberuhunaapi.azurewebsites.net/api/POes1');
+  const data =res1.data
+console.log(res1.data)
+const options1 = data.map(p=> ({
+ "po": p.poid,
+  })
+  )
+
+this.setState({selectoptions1: options1})
+}
+
+
+
 handleChange1 = (e)=> {  
   this.setState({loid:e.label, id:e.num, mks:e.mks, nm:e.name,
   p1:e.p1,
@@ -78,50 +92,73 @@ handleChange1 = (e)=> {
   p9:e.p9,
   p10:e.p10,
   p11:e.p11,
-  p12:e.p12
-});  
+  p12:e.p12,
+ });  
   }
 
-componentDidMount (){
+  handleChange2 = (s)=> {  
+    this.setState({
+      poid:s.po,
+
+   });  
+    }
+
+componentDidMount ()
+{
+  
+  this.getpos()
   this.getoptions()
 }
   AddAsComponent=()=>{  
-    console.log()
-    axios.post('https://localhost:5001/api/AsComponents', {ascomponent:this.state.ascomponent,
-  loid:this.state.loid,
-  poid:this.state.poid,
-  marks:this.state.marks,
-  ld:this.state.ld,
-  type:this.state.type,
-  lid:this.state.id,
-  ModuleId:this.props.match.params.Moduleid})  
-  
-    axios.put('https://localhost:5001/api/LOes1/'+this.state.id, {
-     lmarks:parseInt(this.state.marks)+parseInt(this.state.mks) ,
-    id:this.state.id, 
-    loid:this.state.loid,
-    ModuleId:this.props.match.params.Moduleid,
-    name:this.state.nm,
-    p1:this.state.p1,
-    p2:this.state.p2,
-    p3:this.state.p3,
-    p4:this.state.p4,
-    p5:this.state.p5,
-    p6:this.state.p6,
-    p7:this.state.p7,
-    p8:this.state.p8,
-    p9:this.state.p9,
-    p10:this.state.p10,
-    p11:this.state.p11,
-    p12:this.state.p12
-  })
     
-  .then(json => {  
-      console.log(json.data.Status);  
-      alert("Data Save Successfully to " +this.props.match.params.Moduleid); 
-      this.props.history.push( `/AsComponent/${this.props.match.params.Moduleid}`) 
-              }  
-      )
+      {
+        axios.post('https://oberuhunaapi.azurewebsites.net//api/AsComponents', {ascomponent:this.state.ascomponent,
+      loid:this.state.loid,
+      poid:this.state.poid,
+      marks:this.state.marks,
+      ld:this.state.ld,
+      type:this.state.type,
+      lid:this.state.id,
+      ModuleId:this.props.match.params.Moduleid})
+     
+      .catch((err) => {
+        console.log(err);
+        
+      alert("Error!! Data Not saved. Please Check the input feilds")})
+    }
+    if((this.state.ascomponent!='')&&(this.state.poid!='')){
+      axios.put('https://oberuhunaapi.azurewebsites.net//api/LOes1/'+this.state.id, {
+      lmarks:parseInt(this.state.marks)+parseInt(this.state.mks) ,
+      id:this.state.id, 
+      loid:this.state.loid,
+      ModuleId:this.props.match.params.Moduleid,
+      name:this.state.nm,
+      p1:this.state.p1,
+      p2:this.state.p2,
+      p3:this.state.p3,
+      p4:this.state.p4,
+      p5:this.state.p5,
+      p6:this.state.p6,
+      p7:this.state.p7,
+      p8:this.state.p8,
+      p9:this.state.p9,
+      p10:this.state.p10,
+      p11:this.state.p11,
+      p12:this.state.p12
+    })
+      
+    .then(json => {  
+        console.log(json.data.Status);  
+        alert("Data Save Successfully to " +this.props.match.params.Moduleid); 
+        this.props.history.push( `/AsComponent/${this.props.match.params.Moduleid}`) 
+                }  
+        )
+
+        .catch((err) => {
+          console.error(err);
+        alert("Invalid operation! Please select a LO")})
+  }     
+
   }
 
   onClose = () => {
@@ -160,7 +197,8 @@ componentDidMount (){
         <FormGroup row>  
           <Label for="poid" sm={2}>POID</Label>  
           <Col sm={10}>  
-            <Input type="text" name="poid" onChange={this.handleChange} value={this.state.poid} placeholder="Enter PO Id" />  
+          <Select options={this.state.selectoptions1} onChange={this.handleChange2.bind(this)}/>
+          <p>You have selected <strong>{this.state.poid}</strong></p>
           </Col>  
         </FormGroup>  
           

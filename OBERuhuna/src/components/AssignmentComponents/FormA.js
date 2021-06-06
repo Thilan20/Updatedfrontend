@@ -48,7 +48,7 @@ export default class FormA extends Component {
 
     Addsummary=()=>{
       debugger;
-      axios.put('https:/localhost:5001/api/modules/'+this.props.match.params.ModuleId, 
+      axios.put('https://oberuhunaapi.azurewebsites.net/api/modules/'+this.props.match.params.ModuleId, 
       {
         
         moduleId:this.props.match.params.ModuleId,
@@ -79,17 +79,17 @@ export default class FormA extends Component {
     async componentDidMount(){  
       debugger;  
       
-      const response =await axios.get('https://localhost:5001/api/POes1')  
+      const response =await axios.get('https://oberuhunaapi.azurewebsites.net//api/POes1')  
         const POs = response.data;
         this.setState({POs});
         console.log(POs);
 
-        const res =await axios.get('https://localhost:5001/api/LOes?id='+this.props.match.params.ModuleId)  
+        const res =await axios.get('https://oberuhunaapi.azurewebsites.net//api/LOes?id='+this.props.match.params.ModuleId)  
         const LOs = res.data;
         this.setState({LOs});
         console.log(LOs)
 
-        const res1 =await axios.get('https://localhost:5001/api/modules/'+this.props.match.params.ModuleId)  
+        const res1 =await axios.get('https://oberuhunaapi.azurewebsites.net//api/modules/'+this.props.match.params.ModuleId)  
         const module = res1.data;
         this.setState({module});
        
@@ -490,7 +490,7 @@ renderrows=() => {
                 </Link>
             </h1>
                               
-            <h2>Outcome Based Education System</h2>
+            <h2><strong>OBE Curriculum Plannig Tool</strong></h2>
 
           </div>  
         <div>

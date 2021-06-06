@@ -20,7 +20,7 @@ export default class AsComponentList extends Component {
     componentDidMount(){  
       debugger;  
       
-      axios.get('https://localhost:5001/api/AsComponents?id=' +this.props.match.params.value)  
+      axios.get('https://oberuhunaapi.azurewebsites.net//api/AsComponents?id=' +this.props.match.params.value)  
         .then(response => {  
       
           this.setState({ business: response.data });
@@ -66,7 +66,7 @@ return (
                 </Link>
             </h1>
                               
-            <h2>Outcome Based Education System</h2>
+            <h2><strong>OBE Curriculum Plannig Tool</strong></h2>
 
           </div>
         <div class="column col-md-1 offset-md-5">

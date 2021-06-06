@@ -18,7 +18,7 @@ export default class Summary extends Component {
     }  
     componentDidMount(){  
         debugger;  
-        axios.get('https://localhost:5001/api/Modules?field=type&value=Core')  
+        axios.get('https://oberuhunaapi.azurewebsites.net//api/Modules?field=type&value=Core')  
           .then(response => {  
             this.setState({ business1: response.data });  
             debugger;  

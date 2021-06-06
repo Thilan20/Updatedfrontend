@@ -11,7 +11,7 @@ export default class ShowLOMarks extends Component {
     }  
     componentDidMount(){  
       debugger;  
-      axios.get('https://localhost:5001/api/LOes?id='+this.props.dataFromParent)  
+      axios.get('https://oberuhunaapi.azurewebsites.net//api/LOes?id='+this.props.dataFromParent)  
         .then(response => {  
       
           this.setState({ business: response.data });
@@ -39,7 +39,10 @@ export default class ShowLOMarks extends Component {
               </tr>
         )
       });     
-    }  
+    } 
+    resettotal(){
+      {this.state.total=0}
+    } 
     
     render() {  
       return (    
@@ -62,9 +65,12 @@ export default class ShowLOMarks extends Component {
              <tr>
                <td> Total</td>
                <td>{this.state.total }</td>
+               {this.resettotal()}
                </tr>  
             </tbody>  
+
           </table>  
+          
         </div>  
       );  
     }  

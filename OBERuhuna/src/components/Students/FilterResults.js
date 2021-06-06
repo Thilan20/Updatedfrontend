@@ -29,7 +29,7 @@ export default class FilterResults extends Component {
           console.log(error);  
         })  
 
-        const res =await axios.get('https://localhost:5001/api/LOes?id='+this.props.match.params.moduleId)  
+        const res =await axios.get('https://oberuhunaapi.azurewebsites.net//api/LOes?id='+this.props.match.params.moduleId)  
         const LOs = res.data;
         this.setState({LOs});
         console.log(LOs)

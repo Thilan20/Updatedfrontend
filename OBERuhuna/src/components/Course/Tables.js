@@ -12,7 +12,7 @@ class Table extends Component {
     }
       
     DeleteCourse= () =>{  
-     axios.delete('https://localhost:5001/api/modules/'+this.props.obj.moduleId)  
+     axios.delete('https://oberuhunaapi.azurewebsites.net//api/modules/'+this.props.obj.moduleId)  
     .then(json => {  
     alert('Record deleted successfully!!');  
      

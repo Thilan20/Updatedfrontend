@@ -19,7 +19,7 @@ state:'',
 }   
 Addcourse=()=>{  
 
-  axios.post('https://localhost:5001/api/modules', {ModuleId:this.state.ModuleId,
+  axios.post('https://oberuhunaapi.azurewebsites.net//api/modules', {ModuleId:this.state.ModuleId,
   Name:this.state.Name,
   credits:this.state.credits,
   state:this.state.state,
@@ -29,7 +29,13 @@ Addcourse=()=>{
   console.log(json.data.Status);  
   alert("Data Save Successfully");  
 this.props.history.push('/Courselist')  
-})  
+})
+
+.catch((err) => {
+  console.log(err.title);
+  debugger;
+alert("Error!! Data Not saved. Please fill all the feilds")})
+
 }  
              
 handleChange= (e)=> {  

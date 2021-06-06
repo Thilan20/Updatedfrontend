@@ -27,7 +27,7 @@ class AddLO extends React.Component{
   
   }   
   AddLO=()=>{  
-    axios.post('https://localhost:5001/api/LOes', {loid:this.state.loid,
+    axios.post('https://oberuhunaapi.azurewebsites.net//api/LOes', {loid:this.state.loid,
   name:this.state.name,ModuleId:this.props.match.params.value,
 p1:this.state.p1,
 p2:this.state.p2,
@@ -77,13 +77,17 @@ p12:this.state.p12, })
            </Link>
        </h1>
                          
-       <h2>Outcome Based Education System</h2>
+       <h2><strong>OBE Curriculum Plannig Tool</strong></h2>
 
      </div>
 
     <Container className="App"> 
      
-    <h4 className="PageHeading">Add Learning Outcomes </h4>  
+     
+
+    <div class="w3-container" >
+            <div class="w3-bar w3-blue">
+          <h3 align="center"><strong>Add Learning Outcomes to Module {this.props.match.params.value}</strong></h3></div></div><br></br>
     <Form className="form">  
       <Col>  
       <FormGroup row>  

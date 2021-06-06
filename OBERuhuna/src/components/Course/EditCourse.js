@@ -19,7 +19,7 @@ class Edit extends React.Component {
     
   
   componentDidMount() {  
-      axios.get('https://localhost:5001/api/Modules/'+this.props.match.params.moduleId)  
+      axios.get('https://oberuhunaapi.azurewebsites.net//api/Modules/'+this.props.match.params.moduleId)  
           .then(response => {  
               this.setState({   
                 ModuleId: response.data.moduleId,   
@@ -52,7 +52,7 @@ class Edit extends React.Component {
       name: this.state.name,  
   
     };  
-    axios.post('https://localhost:5001/api/Modules/', obj)  
+    axios.post('https://oberuhunaapi.azurewebsites.net//api/Modules/', obj)  
         .then(res => console.log(res.data));  
         debugger;  
         this.props.history.push('/Courselist')  

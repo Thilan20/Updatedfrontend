@@ -17,10 +17,10 @@ class AsComponentTable extends Component {
       getlo = (iid) => {
         debugger;
 
-        axios.get('https://localhost:5001/api/LOes1/'+iid)  // Get the marks and PO mappings of relevant LO
+        axios.get('https://oberuhunaapi.azurewebsites.net//api/LOes1/'+iid)  // Get the marks and PO mappings of relevant LO
         .then(response => {  
           this.state.PLO = response.data 
-          axios.put('https://localhost:5001/api/LOes1/'+this.props.obj.lid,
+          axios.put('https://oberuhunaapi.azurewebsites.net//api/LOes1/'+this.props.obj.lid,
           {
           lmarks:parseInt(this.state.PLO.lmarks)-parseInt(this.props.obj.marks),  // Substracting the marks of the relevant LO and update
           id:this.props.obj.lid, 
@@ -46,7 +46,7 @@ class AsComponentTable extends Component {
        } 
     DeleteAsComponent= () =>{  
     this.getlo(this.props.obj.lid);
-     axios.delete('https://localhost:5001/api/AsComponents/'+this.props.obj.asID)  // Delete the assessment component
+     axios.delete('https://oberuhunaapi.azurewebsites.net//api/AsComponents/'+this.props.obj.asID)  // Delete the assessment component
     .then(json => {  
     alert('Record deleted successfully!!');
     debugger;  

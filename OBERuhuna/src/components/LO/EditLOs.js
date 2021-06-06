@@ -17,7 +17,7 @@ class EditLO extends React.Component{
   
   }   
   AddLO=()=>{  
-    axios.put('https://localhost:5001/api/LOes1/'+this.props.match.params.vlid, {lmarks:parseInt(this.state.lmarks)+10 ,
+    axios.put('https://oberuhunaapi.azurewebsites.net//api/LOes1/'+this.props.match.params.vlid, {lmarks:parseInt(this.state.lmarks)+10 ,
     id:this.props.match.params.vlid,
     loid:this.props.match.params.vloid,
     name:this.props.match.params.vloname,
@@ -59,7 +59,7 @@ class EditLO extends React.Component{
            </Link>
        </h1>
                          
-       <h2>Outcome Based Education System</h2>
+       <h2><strong>OBE Curriculum Plannig Tool</strong></h2>
 
      </div>
 

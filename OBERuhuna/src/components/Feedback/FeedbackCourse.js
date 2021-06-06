@@ -21,7 +21,7 @@ function FeedbackCourse(props){
 
 
 
-  const apiUrl = "https://localhost:5001/api/Feedbacks";    
+  const apiUrl = "https://oberuhunaapi.azurewebsites.net//api/Feedbacks";    
   const feedbackFunc = (e) => {    
           e.preventDefault();    
           debugger;   

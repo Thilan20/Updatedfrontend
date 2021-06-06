@@ -51,7 +51,7 @@ export default class ModuleList extends Component {
               </Link>
           </h1>
                             
-          <h2>Outcome Based Education System</h2>
+          <h2><strong>OBE Curriculum Plannig Tool</strong></h2>
 
         </div>
 

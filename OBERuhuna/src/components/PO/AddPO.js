@@ -15,19 +15,22 @@ class AddPO extends React.Component{
   
   }   
   AddPO=()=>{  
-    axios.post('https://localhost:5001/api/POes1', {poid:this.state.poid,
+    axios.post('https://oberuhunaapi.azurewebsites.net//api/POes1', {poid:this.state.poid,
     poName:this.state.poName,
-   // id:this.props.match.params.value
-  })  
+  })
     
   .then(json => {  
-      console.log(json.data.Status);
       alert("New PO Added to the list");
       this.props.history.push( `/POlist`)    
-     
-
-              }  
+     }  
       )
+      .catch((err) => {
+        console.log(err);
+        
+      alert("Error!! Data Not saved. Data already in the database")})  
+          
+              
+      
   }
 
   onClose = () => {
@@ -54,7 +57,7 @@ class AddPO extends React.Component{
               </Link>
           </h1>
                             
-          <h2>Outcome Based Education System</h2>
+          <h2><strong>OBE Curriculum Plannig Tool</strong></h2>
 
         </div>
 

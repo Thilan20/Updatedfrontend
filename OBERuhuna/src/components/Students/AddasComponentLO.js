@@ -11,7 +11,7 @@ export default class AddasComponentLO extends Component {
     }  
     componentDidMount(){  
       debugger;  
-      axios.get('https://localhost:5001/api/LOes?id='+this.props.match.params.moduleId)  
+      axios.get('https://oberuhunaapi.azurewebsites.net//api/LOes?id='+this.props.match.params.moduleId)  
         .then(response => {  
       
           this.setState({ business: response.data });

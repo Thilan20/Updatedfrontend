@@ -14,8 +14,8 @@ export default class POlist extends Component {
     
     componentDidMount(){  
       debugger;  
-//      axios.get('https://localhost:5001/api/POes?id='+this.props.match.params.value) 
-      axios.get('https://localhost:5001/api/POes1')  //PO from lecturer page
+//      axios.get('https://oberuhunaapi.azurewebsites.net//api/POes?id='+this.props.match.params.value) 
+      axios.get('https://oberuhunaapi.azurewebsites.net//api/POes1')  //PO from lecturer page
         .then(response => {  
           this.setState({ business: response.data });  
           debugger;  
@@ -43,7 +43,7 @@ export default class POlist extends Component {
               </Link>
           </h1>
                             
-          <h2>Outcome Based Education System</h2>
+          <h2><strong>OBE Curriculum Plannig Tool</strong></h2>
 
         </div>
         

@@ -10,7 +10,7 @@ export default class Courselist extends Component {
     }  
     componentDidMount(){  
       debugger;  
-      axios.get('https://localhost:5001/api/modules')  
+      axios.get('https://oberuhunaapi.azurewebsites.net//api/modules')  
         .then(response => {  
           this.setState({ business: response.data });  
           debugger;  

@@ -25,23 +25,18 @@ function Lecturer (props) {
         <div class= "header">
           <img src={Logo} alt ='weblogo' />
           <h1>
-              <Link className="header" to='/'  >
-                  Faculty of Engineering University of Ruhuna
-              </Link>
+            <Link className="header" to='/'  >
+                Faculty of Engineering University of Ruhuna
+            </Link>
 
-  <DropdownButton id="dropdown-basic-button" title={user} style ={{float:'right'}}>
-  <Dropdown.Item href="/lecturer"> Dashboard</Dropdown.Item>
-  <Dropdown.Item  onClick={onLogoutHandler}>Logout</Dropdown.Item>
-</DropdownButton> 
+            <DropdownButton id="dropdown-basic-button" title={user} style ={{float:'right'}}>
+              <Dropdown.Item href="/lecturer"> Dashboard</Dropdown.Item>
+              <Dropdown.Item  onClick={onLogoutHandler}>Logout</Dropdown.Item>
+           </DropdownButton> 
           </h1>
                             
-          <h2>Outcome Based Education System</h2>
+          <h2><strong>OBE Curriculum Plannig Tool</strong></h2>
 
-        </div>
-
-        <div class ="title">
-            <h2> Department of Electrical and Information Engineering</h2>
-            <h3>Cousrse assigned by Head of the Department</h3>
         </div>
 
 

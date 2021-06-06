@@ -14,7 +14,7 @@ import { Dropdown,DropdownButton} from 'react-bootstrap';
 
 function Login2(props) {  
     const [employee, setemployee] = useState({ email: '', password: ''});  
-    const apiUrl = "https://localhost:5001/api/Accounts/login";    
+    const apiUrl = "https://oberuhunaapi.azurewebsites.net//api/Accounts/login";    
     const Login = (e) => {    
             e.preventDefault();    
             debugger;   
@@ -57,7 +57,7 @@ function Login2(props) {
           
           const onChange = (e) => {    
                 e.persist();    
-                debugger;    
+                //debugger;    
                 setemployee({...employee, [e.target.name]: e.target.value});    
               }    
     return (  
@@ -68,7 +68,7 @@ function Login2(props) {
 
                          <img src={Logo}    alt ='weblogo' />
                         <h1>Faculty of Engineering University of Ruhuna</h1>
-                        <h2>Outcome Based Education System</h2>
+                        <h2><strong>OBE Curriculum Plannig Tool</strong></h2>
                     </div>
                     <div class="dropdown">
                     <div class="dropdown">

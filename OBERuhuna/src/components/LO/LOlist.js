@@ -11,7 +11,7 @@ export default class LOlist extends Component {
     }  
     componentDidMount(){  
       debugger;  
-      axios.get('https://localhost:5001/api/LOes?id='+this.props.match.params.value)  
+      axios.get('https://oberuhunaapi.azurewebsites.net//api/LOes?id='+this.props.match.params.value)  
         .then(response => {  
       
           this.setState({ business: response.data });
@@ -35,8 +35,12 @@ export default class LOlist extends Component {
     render() {  
       return (    
         <div>  
-         
-          <h4 align="center">LO List</h4>  
+
+        <div class="w3-container" >
+            <div class="w3-bar w3-blue">
+          <h3 align="center"><strong>Learning Outcome List of Module {this.props.match.params.value}</strong></h3></div></div><br></br>
+
+
           <table className="table table-striped" style={{ marginTop: 10 }}>  
             <thead>  
               <tr>  

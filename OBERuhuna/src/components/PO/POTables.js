@@ -11,7 +11,7 @@ class POTable extends Component {
     }
       
     DeletePO= () =>{  
-     axios.delete('https://localhost:5001/api/POes1/'+this.props.obj.poid)  
+     axios.delete('https://oberuhunaapi.azurewebsites.net//api/POes1/'+this.props.obj.poid)  
     .then(json => {  
     alert('Record deleted successfully!!');
     window.location.reload(false);  

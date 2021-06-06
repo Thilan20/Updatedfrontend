@@ -12,7 +12,7 @@ class LOTable extends Component {
     }
       
     DeleteLO= () =>{  
-     axios.delete('https://localhost:5001/api/LOes/'+this.props.obj.id)  
+     axios.delete('https://oberuhunaapi.azurewebsites.net//api/LOes/'+this.props.obj.id)  
     .then(json => {  
     alert('Record deleted successfully!!');
     

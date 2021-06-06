@@ -38,13 +38,11 @@ import { Dropdown,DropdownButton} from 'react-bootstrap';
 </DropdownButton> 
           </h1>
                         
-          <h2>Outcome Based Education System</h2>
+          <h2><strong>OBE Curriculum Plannig Tool</strong></h2>
           
         </div>
       <div className="container">
         <h3 className="center">Student</h3>
-        <h4>Students registered on database</h4>
-
 
         <BrowserRouter>
         <div className="container">  
