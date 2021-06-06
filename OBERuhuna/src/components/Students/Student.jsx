@@ -46,7 +46,7 @@ import { Dropdown,DropdownButton} from 'react-bootstrap';
 
         <BrowserRouter>
         <div className="container">  
-        <nav className="navbar navbar-expand-lg navheader" >  
+        <nav className="navbar-expand-sm navheader" >  
           <div className="collapse navbar-collapse">  
             <ul className="navbar-nav mr-auto">   
               <li className="nav-item">  

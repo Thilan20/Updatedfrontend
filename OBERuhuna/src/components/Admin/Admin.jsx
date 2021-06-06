@@ -41,7 +41,7 @@ function Admin(props){
         
         <BrowserRouter>
         <div >  
-        <nav className="navbar navbar-expand-lg navheader" >  
+        <nav className="navbar-expand-sm navheader" >  
           <div className="collapse navbar-collapse">  
             <ul className="navbar-nav mr-auto">  
               <li className="nav-item">  
