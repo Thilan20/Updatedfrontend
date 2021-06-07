@@ -494,6 +494,7 @@ renderrows=() => {
 
           </div>  
         <div>
+              <h1>{this.props.match.params.ModuleId} </h1>
         <table className="table table-striped" style={{ marginTop: 10 }}>  
             <thead>  
               <tr>  
