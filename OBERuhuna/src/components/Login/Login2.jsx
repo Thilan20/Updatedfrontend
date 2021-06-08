@@ -24,17 +24,24 @@ function Login2(props) {
             .then((result) => {    
                 debugger;  
                // result.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+                
+                //logging result data
 
-                console.log(result.data);   
+                console.log(result.data);  
+                //getting JWT Token
                 const serializedState = JSON.stringify(result.data[1]);  
                 console.log(serializedState);
+                //Decoding the token
                 var decoded = jwt_decode(serializedState);
                  console.log(decoded);
                var a= localStorage.setItem('myData', serializedState); 
+                //saving the username for future use
                localStorage.setItem('username',result.data[2])
              
               console.log("A:",a)  
                 console.log(result.data.message);  
+                
+                //Role based authorization according to the retrieved role
                 if (result.data[0] == 'Lecturer')    
                     props.history.push('/lecturer')    
                 else if(result.data[0] == 'User')   
