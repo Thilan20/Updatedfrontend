@@ -46,7 +46,7 @@ export default class LOlist extends Component {
               <tr>  
                 <th >LOId</th>  
                 <th >LO Name</th>
-                <th> </th>
+                
                 <th> Delete</th>   
                 </tr>  
             </thead>  

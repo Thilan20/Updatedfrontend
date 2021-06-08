@@ -57,7 +57,17 @@ export default class FilterResults extends Component {
         <div >  
         
         <div  >
-          <h4 align="center">LO List</h4>  
+
+          <div class="column col-md-1 offset-md-5">
+            <h4 align="center">LO List</h4>  
+        </div>
+        <div class="column col-md-2 offset-md-4">
+            <a href="https://docs.google.com/spreadsheets/d/14j_xmXiC0LeaxC1j0FWnK0nLSDQuy602mXN111lxZSA/edit#gid=0" target="_blank" >
+                  <button type="button"  className="btn btn-success">Add Results</button> 
+            </a>
+        </div>
+
+
           <table allign="left" className="table table-striped " >  
             <thead >  
               <tr >  

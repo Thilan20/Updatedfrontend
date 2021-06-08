@@ -41,11 +41,6 @@ class LOTable extends Component {
               </Link>                 
           </td>
 
-          <td>  
-            <Link to={`/EditLO/${ this.props.obj.id }`} target="_blank">
-              <button type="button"  className="btn btn-success">Edit LO</button> 
-              </Link>                 
-          </td>
       </tr> 
     );
       // /${this.props.obj.loid}/${this.props.obj.name}/${this.props.dataFromParent}
