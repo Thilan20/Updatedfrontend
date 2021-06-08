@@ -11,13 +11,17 @@ import { Dropdown,DropdownButton} from 'react-bootstrap';
 
 
 function Lecturer (props) {
+  
+  //logout event handler
 
   const onLogoutHandler = (e) => {
     e.preventDefault();
+    //removing username and token from local storage
     localStorage.removeItem('myData');
     localStorage.removeItem('username');
    props.history.push('/')
   }
+  //retrieving username from local storage
   var user =localStorage.getItem('username');
   console.log(user);
   return (
