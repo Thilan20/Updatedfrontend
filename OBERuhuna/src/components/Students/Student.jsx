@@ -10,14 +10,14 @@ import { Dropdown,DropdownButton} from 'react-bootstrap';
 
 
   function Student(props) {
-
+//Logout event handler
   const onLogoutHandler = (e) => {
       e.preventDefault();
       localStorage.removeItem('myData');
       localStorage.removeItem('username');
      props.history.push('/')
     }
-
+//retrieve username
     var user =localStorage.getItem('username');
     console.log(user);
 
