@@ -6,7 +6,7 @@ import { Container } from "reactstrap";
 import { propTypes } from "react-bootstrap/esm/Image";
 import ReactDOM from "react-dom";
 
-
+//initialize feedback arrays
     let feedbackValuesQ1 = [];
     let feedbackValuesQ2 = [];
     let feedbackValuesQ3 = [];
@@ -19,6 +19,7 @@ import ReactDOM from "react-dom";
     let feedbackValuesQ10 = [];
     let allAverages=[];
 
+//initializing average responses for zero;
     var q1Avg =0;
     var q2Avg =0;
     var q3Avg =0;
@@ -34,7 +35,9 @@ import ReactDOM from "react-dom";
 const FeedbackChart=()=>{
   console.log("previous value = "+feedbackValuesQ1)
 
+    //getting the current URL
   var URL = window.location.pathname
+  //Geeting the ModuleID
   var res = URL.slice(15);
   console.log("Moduleid = "+ res);
 
@@ -66,6 +69,7 @@ const FeedbackChart=()=>{
       .then(res => {
         console.log(res);
         for (const dataObj of res.data) {
+            //pushing the data to the arrays
             feedbackValuesQ1.push(+dataObj.q1);
             feedbackValuesQ2.push(+dataObj.q2);
             feedbackValuesQ3.push(+dataObj.q3);
@@ -77,6 +81,7 @@ const FeedbackChart=()=>{
             feedbackValuesQ9.push(+dataObj.q9);
             feedbackValuesQ10.push(+dataObj.q10);
         }
+        //getting avg feedback using feedback values
         q1Avg = AverageFeedBack(feedbackValuesQ1);
         q2Avg = AverageFeedBack(feedbackValuesQ2);
         q3Avg = AverageFeedBack(feedbackValuesQ3);
@@ -88,6 +93,7 @@ const FeedbackChart=()=>{
         q9Avg = AverageFeedBack(feedbackValuesQ9);
         q10Avg = AverageFeedBack(feedbackValuesQ10);
 
+        
          TotalStudents=feedbackValuesQ1.length;
 
          allAverages = [q1Avg,q2Avg,q3Avg,q4Avg,q5Avg,q6Avg,q7Avg,q8Avg,q9Avg,q10Avg];
@@ -151,6 +157,8 @@ const FeedbackChart=()=>{
         />
       </div>
     </div>
+
+//initializing the values to zero 
     {feedbackValuesQ1= []}
     {feedbackValuesQ2= []}
     {feedbackValuesQ3= []}
@@ -165,6 +173,7 @@ const FeedbackChart=()=>{
     
   );
 };
+//feedback avg function
 function AverageFeedBack(grades) {
   var total = 0;
 for(var i = 0; i < grades.length; i++) {
