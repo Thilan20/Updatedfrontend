@@ -8,7 +8,7 @@ import { Dropdown,DropdownButton} from 'react-bootstrap';
 
 
 function Admin(props){
-
+//logout function
   const onLogoutHandler = (e) => {
     e.preventDefault();
     localStorage.removeItem('myData');
