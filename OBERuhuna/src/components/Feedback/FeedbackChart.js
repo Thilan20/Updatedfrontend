@@ -158,7 +158,6 @@ const FeedbackChart=()=>{
       </div>
     </div>
 
-//initializing the values to zero 
     {feedbackValuesQ1= []}
     {feedbackValuesQ2= []}
     {feedbackValuesQ3= []}
